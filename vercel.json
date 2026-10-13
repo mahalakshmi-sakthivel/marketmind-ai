@@ -3,35 +3,15 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "functions": {
-    "api/**/*.py": {
-      "includeFiles": "{backend/**,Milestone_4/**,*.db,outputs/**,data/**}",
+    "main.py": {
+      "includeFiles": "{backend/**,*.db,outputs/**,data/**,public/**}",
       "maxDuration": 30
     }
   },
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/auth/(.*)",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/health",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/docs",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/redoc",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/openapi.json",
-      "destination": "/api/index.py"
+      "source": "/((?!public/).*)",
+      "destination": "/main.py"
     }
   ]
 }
