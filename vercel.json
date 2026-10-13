@@ -2,30 +2,36 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/**/*.py": {
+      "includeFiles": "{backend/**,Milestone_4/**,*.db,outputs/**,data/**}",
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api"
+      "destination": "/api/index.py"
     },
     {
       "source": "/auth/(.*)",
-      "destination": "/api"
+      "destination": "/api/index.py"
     },
     {
       "source": "/health",
-      "destination": "/api"
+      "destination": "/api/index.py"
     },
     {
       "source": "/docs",
-      "destination": "/api"
+      "destination": "/api/index.py"
     },
     {
       "source": "/redoc",
-      "destination": "/api"
+      "destination": "/api/index.py"
     },
     {
       "source": "/openapi.json",
-      "destination": "/api"
+      "destination": "/api/index.py"
     }
   ]
 }
